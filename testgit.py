@@ -7,3 +7,5 @@ print("modifications of A")
 
 print(tab2[0])
 print("life is a cake")
+
+print("hello, this is player two")
