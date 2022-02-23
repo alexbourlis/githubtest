@@ -9,3 +9,5 @@ print(tab2[0])
 print("life is a cake")
 
 print("hello, this is player two")
+
+print("test Fetch vs Pull")
