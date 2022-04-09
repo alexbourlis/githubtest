@@ -7,6 +7,7 @@
 # Date: 17/03/2022
 # ************************************************************************************************************
 from B_file1 import *
+import dis
 
 def ordinal(number):
     if number==0: return "ERROR"
@@ -43,3 +44,5 @@ for Run in RunsArray:
     count += 1
 
 show_plot(legend_array)
+
+#dis.dis(dis)
