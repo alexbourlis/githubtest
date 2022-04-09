@@ -5,6 +5,12 @@ import numpy as np
 SECONDS_IN_ONE_HOUR = 3600
 LAP_DISTANCE = 0.4          # Distance of one lap in Km
 
+def ordinal(number):
+    if number==0: return "ERROR"
+    elif number==1: return "1st"
+    elif number==2: return "2nd"
+    elif number==3: return "3rd"
+    else: return "%dth" % number
 # Converts time from "minute.seconds" to "seconds"
 def convert_to_sec(time_value):
     return (time_value-time_value%1)*60 + (time_value%1)*100;
