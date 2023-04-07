@@ -30,5 +30,6 @@ buttonframe.pack(fill='x')
 
 myentry = tk.Entry(root)
 myentry.pack()
+Nwindow = tk.Toplevel()
 
 root.mainloop()
