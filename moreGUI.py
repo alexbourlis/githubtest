@@ -67,7 +67,7 @@ class Cartesian:
 				#i should verify that the numbers make sense
 				self.add_point(x+y,-z-y)
 			except ValueError:
-				print("Not a valid entry")
+				print("Not a valid entry, enter 3 numbers in 3 different lines")
 			except TypeError:
 				print("No entries")
 			self.opWinState = False
