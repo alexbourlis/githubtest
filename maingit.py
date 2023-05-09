@@ -5,7 +5,7 @@ import math
 import time
 #import dis
 
-n = 29000000
+n = 4_000_000
 nb_loops = 0
 tab1 = np.ones(n)
 tab0 = np.zeros(n)
@@ -16,18 +16,18 @@ tab = np.append(tab1,tab0)
 #    tab.append(tab0[i])
 
 # Method one
-start_time = time.time()
+start_time = time.perf_counter()
 j = 0
 while tab[j]:
     j +=1
-print("--- %s seconds ---" % (time.time() - start_time))
+print("--- %s seconds ---" % (time.perf_counter() - start_time))
 #print("array size = %d (with method one)" % j)
 
 # Method two
 # The array of which we are trying to determine its size is represented by an array of "ones". I created an array of
 # "ones" followed by "zeroes". We search the index of the last cell containing a "one" by dichotomy. The goal here is
 # to show the huge difference in time efficiency when using a O(log(n)) algorithm instead of a O(n).
-start_time = time.time()
+start_time = time.perf_counter()
 if tab[0]==0:
     print("array is empty")
 elif tab[1]==0:
@@ -49,7 +49,7 @@ else:
             min = (min+max)/2
         else:
             max = (min+max)/2
-    T = (time.time() - start_time)
+    T = (time.perf_counter() - start_time)
     print("--- %s seconds ---" % T)
     #print("array size = %d (with method two)" % size)
     #print("while loop repetitions = %d" % nb_loops)
