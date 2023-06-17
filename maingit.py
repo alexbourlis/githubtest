@@ -5,7 +5,7 @@ import math
 import time
 #import dis
 
-n = 4_000_000
+n = 40_000_000
 nb_loops = 0
 tab1 = np.ones(n)
 tab0 = np.zeros(n)
