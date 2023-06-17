@@ -1,8 +1,14 @@
-from B_file1 import ordinal
 from mpl_toolkits import mplot3d
 import numpy as np
 import matplotlib.pyplot as plt
 
+def ordinal(number):
+    if number==0: return "ERROR"
+    elif number==1: return "1st"
+    elif number==2: return "2nd"
+    elif number==3: return "3rd"
+    else: return "%dth" % number
+    
 def func_one(i,j):
     return (i+j-1)*(i+j)/2 + j + 1
 
