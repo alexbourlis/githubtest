@@ -51,7 +51,7 @@ k = -6*np.pi*ra/v_circle
 dist = theta*ra
 factor_1 = 2*np.pi*dist/k*(ra**3/mu_mars)**0.5
 factor_2 = 3*factor_1/v_circle
-time = 60*60*24*7
+time = 60*60*24*30
 desired_delta_v = factor_1/(time-factor_2)
 #2c)
 
@@ -61,6 +61,7 @@ a = (a_earth+a_mars)/2
 v_esc_mars = (2*mu_mars/a_deimos)**0.5
 v_d_inf_r = (2*mu_sun/a_mars-mu_sun/a)**0.5-(mu_sun/a_mars)**0.5
 v_departure = (v_d_inf_r**2+v_esc_mars**2)**0.5
+delta_v_departure = v_departure - v_circle
 #3b)
 rp = 500e3+r_earth
 v_esc_earth = (2*mu_earth/rp)**0.5
@@ -69,9 +70,9 @@ v_perigee = (v_a_inf_r**2 + v_esc_earth**2)**0.5
 v_desired_earth = (mu_earth/rp)**0.5
 delta_v_final = v_desired_earth - v_perigee
 #3c)
-delta_v_total = (np.abs([delta_v1,delta_v2,v_departure,delta_v_final])).sum()
+delta_v_total = (np.abs([delta_v1,delta_v2,delta_v_departure,delta_v_final])).sum()
 Isp = 350
-g = mu_earth/r_earth**2
+g = 9.81#mu_earth/r_earth**2
 mf = 2000 #kg
 mi = mf*math.exp(delta_v_total/g/Isp)
 m_used = mi-mf
@@ -92,11 +93,12 @@ print("PHASE 2")
 print("a) delta_v2: ", round(delta_v2/1000,4),"km/s")
 print("b) k: ", round(k))
 print("test delta_x: ", round(delta_x/1000,4),"km | test k: ", round(k*delta_v/1000,4),"km")
-print("factors: ", round(factor_1),round(factor_2),"and desired delta_v: ", round(desired_delta_v/1000,8),"km/s")
+print("factors: ", round(factor_1),round(factor_2),"and desired delta_v: ", round(desired_delta_v,4),"m/s")
 print("c) ")
 print("")
 print("PHASE 3")
-print("a) v_d_inf_r: ", round(v_d_inf_r/1000,4),"km/s and v_departure: ", np.round(v_departure/1000,4),"km/s")
+print("a) v_d_inf_r: ", round(v_d_inf_r/1000,4),"km/s and v_departure: ", np.round(v_departure/1000,4),\
+	  "km/s and delta_v_departure: ", round(delta_v_departure/1000,4))
 print("b) desired final delta_v: ", round(delta_v_final/1000,4),"km/s")
 print(" v_esc_earth: ", round(v_esc_earth/1000,4),"km/s | v_a_inf_r: ", round(v_a_inf_r/1000,4),"km/s")
 print(" v_perigee: ", round(v_perigee/1000,4),"km/s | v_desired_earth: ", round(v_desired_earth/1000,4),"km/s")

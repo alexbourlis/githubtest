@@ -37,20 +37,20 @@ class Cartesian:
 		print(event)
 
 	def point(self,a,b):
-	    pnt = (247+a,247+b,253+a,253+b)
-	    return pnt
+		pnt = (247+a,247+b,253+a,253+b)
+		return pnt
 
 	def add_point(self,x=100,y=-50):
-	    self.id1.append(self.can.create_oval(self.point(x,y)))
-	    print("add")
+		self.id1.append(self.can.create_oval(self.point(x,y)))
+		print("add")
 
 	def delete_point(self):
 		if len(self.id1)==0:
 			print("nothing to remove")
 		else:
-		    self.can.delete(self.id1[-1])
-		    self.id1 = self.id1[:-1]
-		    print("delete")
+			self.can.delete(self.id1[-1])
+			self.id1 = self.id1[:-1]
+			print("delete")
 
 	def newWindow(self):
 		self.opWinState = True

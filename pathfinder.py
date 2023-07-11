@@ -93,7 +93,7 @@ try:
             
             i = (abs(np.array(start)-np.array(reference))).max()
             plt.imshow(list1,cmap='plasma')
-            plt.pause(0.5)
+            plt.pause(0.1)
         
         distance = ((start[0]-np.array(chain).T[0])**2+(start[1]-np.array(chain).T[1])**2)**0.5
         indexes_close = np.where(distance<=8**0.5)[0]
