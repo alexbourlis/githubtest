@@ -16,12 +16,21 @@ for candidate in coprimes:
 		break
 
 print(a)
-print(np.array([(a**i)%n for i in range(1000)]))
+#print(np.array([(a**i)%n for i in range(1000)]))
 
 
 k = np.arange(2**15)
-l = np.arange(2**13)
-coef = 1/np.sqrt(2**32)*np.exp(1j*pi*np.outer(l,k)/2**14).sum(axis=1)
+size=8
+l = np.arange(2**size)
 
-#plt.plot(l,np.sqrt(coef.real**2 + coef.imag**2))
-#plt.show()
+coef = []
+for x in range(2**size):
+	coef.append(1/(2**16)*np.exp(1j*pi*x*k/2**14).sum())
+
+coef = np.array(coef)
+#print(np.round(coef,2))
+
+#coef = 1/np.sqrt(2**32)*np.exp(1j*pi*np.outer(l,k)/2**14).sum(axis=1)
+
+plt.plot(l,(coef.real**2 + coef.imag**2))
+plt.show()

@@ -6,7 +6,7 @@ n = 15 					#product of primes
 
 L =  ceil(np.log2(n))	#number of lower qbits
 t = 2*L + 1 			#number of top qbits
-t=4
+#t=4
 x = range(0,2**t)		#all different values for each combinations of upper qbits
 a = 4 					#crapy guess
 
@@ -20,7 +20,7 @@ print(v)
 print(Lout)
 
 #k = np.arange(8)
-l = np.arange(16)
+#l = np.arange(16)
 
 #coef = 1/np.sqrt(2**7)*np.exp(1j*4*pi*np.outer(l,k)/16).sum(axis=1)
 #	
@@ -32,5 +32,5 @@ QFT = 1/np.sqrt(2**t)*np.exp(2j*np.pi/(2**t)*np.outer(np.arange(2**t),np.arange(
 
 print(np.round(QFT.dot(v),3))
 
-plt.plot(l,np.sqrt(QFT.dot(v).real**2+QFT.dot(v).imag**2))#np.sqrt(coef.real**2 + coef.imag**2))
+plt.plot(x,np.sqrt(QFT.dot(v).real**2+QFT.dot(v).imag**2))#np.sqrt(coef.real**2 + coef.imag**2))
 plt.show()
