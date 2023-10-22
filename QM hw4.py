@@ -7,6 +7,8 @@ t = 2*L + 1
 
 coprimes = [i for i in range(2,n) if gcd(i,n) == 1]
 
+print(coprimes)
+
 print(len(coprimes))
 
 a = None 	# crapy guess
@@ -19,18 +21,9 @@ print(a)
 #print(np.array([(a**i)%n for i in range(1000)]))
 
 
-k = np.arange(2**15)
-size=8
-l = np.arange(2**size)
+k = 4*np.arange(2**15)+3
+l = np.arange(0,2**17,2**6)
+coef = 1/np.sqrt(2**32)*np.exp(1j*2*pi*np.outer(l,k)/2**17).sum(axis=1)
 
-coef = []
-for x in range(2**size):
-	coef.append(1/(2**16)*np.exp(1j*pi*x*k/2**14).sum())
-
-coef = np.array(coef)
-#print(np.round(coef,2))
-
-#coef = 1/np.sqrt(2**32)*np.exp(1j*pi*np.outer(l,k)/2**14).sum(axis=1)
-
-plt.plot(l,(coef.real**2 + coef.imag**2))
+plt.plot(l,np.sqrt(coef.real**2 + coef.imag**2))
 plt.show()
